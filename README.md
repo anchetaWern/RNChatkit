@@ -1,6 +1,8 @@
 # RNChatkit
 A chat app created with React Native and Chatkit.
 
+You can view the full tutorial at [https://pusher.com/tutorials/chat-react-native-chatkit](https://pusher.com/tutorials/chat-react-native-chatkit)
+
 ### Prerequisites
 
 - React Native development environment or [Expo](https://expo.io/)
