@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { ChatManager, TokenProvider } from "@pusher/chatkit";
+import { ChatManager, TokenProvider } from "@pusher/chatkit-client";
 
 import Login from "./app/screens/Login";
 import Users from "./app/screens/Users";
 import Chat from "./app/screens/Chat";
 
 const instanceLocatorId = "YOUR INSTANCE LOCATOR ID";
-const presenceRoomId = YOUR_GENERAL_ROOM_ID; // room ID of the general room created through the chatKit inspector
+const presenceRoomId = "YOUR_GENERAL_ROOM_ID"; // room ID (string) of the general room created through the Chatkit inspector
 const chatServer = "http://YOUR_INTERNAL_IP:3000/users";
 
 const tokenProvider = new TokenProvider({
@@ -253,14 +253,14 @@ export default class App extends React.Component {
   };
 
   subscribeToRoom = (roomId, chatWith) => {
-    this.roomId = roomId;
+    this.roomId = roomId.toString();
     this.chatWithUser = chatWith;
 
     this.currentUser
       .subscribeToRoom({
         roomId: roomId,
         hooks: {
-          onNewMessage: this.onReceiveMessage,
+          onMessage: this.onReceiveMessage,
           onUserStartedTyping: this.onUserTypes,
           onUserStoppedTyping: this.onUserNotTypes
         },
